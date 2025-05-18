@@ -5,11 +5,13 @@ import './Logo.css';
 
 const Logo = () => {
     return (
-        <Tilt className="tilt br3 shadow-3">
-            <div className="pa3">
-                <img style={{paddingTop: '5px'}} src={brain} alt="logo"/>
-            </div>
-        </Tilt>
+        <div className="ma4 mt0">
+            <Tilt className="tilt br3 shadow-3">
+                <div className="pa3">
+                    <img style={{paddingTop: '5px'}} src={brain} alt="logo"/>
+                </div>
+            </Tilt>
+        </div>
         );
 }
 
