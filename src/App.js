@@ -9,6 +9,7 @@ import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Signin from './components/Signin/Signin'
 import Register from './components/Register/Register';
 
+
 const returnClarifaiRequestOptions = (imageURL) => {
   const PAT = 'a6cc7d0c3b8f4016a1da98681085d7a1';
   const USER_ID = 'eueaof5ayc3r';
@@ -42,7 +43,6 @@ const returnClarifaiRequestOptions = (imageURL) => {
 
   return requestOptions;
 }
-
    
 class App extends Component {
   constructor(){
@@ -51,7 +51,7 @@ class App extends Component {
       input: '',
       imageUrl: '',
       box: {},
-      route: 'home',
+      route: 'signin',
       isSignedIn: false,
       user: {
         id: '',
@@ -96,7 +96,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    fetch("https://api.clarifai.com/v2/models/" + 'face-detection' + "/outputs", returnClarifaiRequestOptions(this.state.input))
+    fetch("https://api.clarifai.com/v2/models/face-detection/outputs", returnClarifaiRequestOptions(this.state.input))
       .then(response => response.json())
       .then(response => {
         console.log('hi', response)
